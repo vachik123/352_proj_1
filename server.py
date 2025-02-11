@@ -19,9 +19,15 @@ def server():
     csockid, addr = ss.accept()
     print ("[S]: Got a connection request from a client at {}".format(addr))
 
-    # send a intro message to the client.  
-    msg = "Welcome to CS 352!"
-    csockid.send(msg.encode('utf-8'))
+    data_from_client = csockid.recv(100)
+    received_msg = data_from_client.decode('utf-8')
+    print("[S]: Received message from client: {}".format(received_msg))
+    received_msg = received_msg[::-1].swapcase()
+
+    data_from_client = received_msg.encode('utf-8')
+    
+    csockid.send(data_from_client)
+    print("[S]: Echoed message back to client")
 
     # Close the server socket
     ss.close()

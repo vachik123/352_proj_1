@@ -16,6 +16,10 @@ def client():
     server_binding = (localhost_addr, port)
     cs.connect(server_binding)
 
+    msg = "client says hi UwU!"
+    cs.send(msg.encode('utf-8'))
+    print("[C]: Sent message to server: {}".format(msg))
+
     # Receive data from the server
     data_from_server=cs.recv(100)
     print("[C]: Data received from server: {}".format(data_from_server.decode('utf-8')))
