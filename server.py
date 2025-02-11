@@ -25,10 +25,12 @@ def server():
     csockid, addr = ss.accept()
     print ("[S]: Got a connection request from a client at {}".format(addr))
 
-    data_from_client = csockid.recv(100)
+    data_from_client = csockid.recv(230) #buffer increased because largest file input is no more than 200 bytes(characters)
     received_msg = data_from_client.decode('utf-8')
-    print("[S]: Received message from client: {}".format(received_msg))
-    received_msg = received_msg[::-1].swapcase()
+    print("[S]: Received message from client: {} \n".format(received_msg))
+
+    reversed_lines = "\n".join(received_msg.splitlines()[::-1]) #added to keep file lines in the correct order(before swapping)
+    received_msg = reversed_lines[::-1].swapcase()
 
     data_from_client = received_msg.encode('utf-8')
     
