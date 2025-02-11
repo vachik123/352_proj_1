@@ -27,3 +27,6 @@ def client():
     # close the client socket
     cs.close()
     exit()
+
+if __name__ == "__main__":
+    client()

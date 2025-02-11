@@ -1,4 +1,8 @@
 import socket
+from client import client
+import threading
+import time
+import random
 
 def server():
     try:
@@ -32,3 +36,6 @@ def server():
     # Close the server socket
     ss.close()
     exit()
+
+if __name__ == "__main__":
+    server()
