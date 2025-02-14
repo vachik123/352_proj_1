@@ -50,12 +50,12 @@ def server():
     print("[S]: Output contents:")
     print(received_msg)
     
-    # # send size of response first
-    response_size = len(data_from_client)
-    csockid.send(str(response_size).encode('utf-8'))
+    # # # send size of response first
+    # response_size = len(data_from_client)
+    # csockid.send(str(response_size).encode('utf-8'))
     
-    # # wait for client acknowledgment
-    csockid.recv(8)  # "SIZE_ACK"
+    # # # wait for client acknowledgment
+    # csockid.recv(8)  # "SIZE_ACK"
     
     # # send actual response
     # csockid.send(data_from_client)

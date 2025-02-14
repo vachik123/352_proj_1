@@ -37,16 +37,16 @@ def client():
     cs.send(msg.encode('utf-8'))
     print("[C]: Sent message to server:{} \n".format(msg))
 
-    # first receive size of response
-    size_data = cs.recv(10)  # Size won't be more than 10 digits
-    response_size = int(size_data.decode('utf-8'))
+    # # first receive size of response
+    # size_data = cs.recv(10)  # Size won't be more than 10 digits
+    # response_size = int(size_data.decode('utf-8'))
     
-    # send acknowledgment
-    cs.send(b"SIZE_ACK")
+    # # send acknowledgment
+    # cs.send(b"SIZE_ACK")
     
-    # receive data from the server with proper buffer size
-    data_from_server = cs.recv(response_size)
-    print("[C]: Data received from server: {} \n".format(data_from_server.decode('utf-8')))
+    # # receive data from the server with proper buffer size
+    # data_from_server = cs.recv(response_size)
+    # print("[C]: Data received from server: {} \n".format(data_from_server.decode('utf-8')))
 
     cs.close()
     
